@@ -1,0 +1,28 @@
+﻿<Window x:Class="BasicBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BasicBinding"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="Name"/>
+        <TextBox x:Name="txtName" Grid.Row="1" Width="200" HorizontalAlignment="Left" Text="{Binding Name}"/>
+        <TextBlock Grid.Row="2" Text="Address"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" DataContext="{Binding Address}">
+            <TextBox Width="50" Text="{Binding Number}"/>
+            <TextBox Width="140" Margin="10,0,0,0" Text="{Binding Street}"/>
+        </StackPanel>
+        <Button Grid.Row="4" Width="100" Margin="0,10" HorizontalAlignment="Left" Content="Show" Click="Button_Click"/>
+    </Grid>
+</Window>
